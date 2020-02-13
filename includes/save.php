@@ -59,5 +59,4 @@ if ($type == "opt_responder") {
 }
 
 header('Location: ../index.php');
-
 ?>
