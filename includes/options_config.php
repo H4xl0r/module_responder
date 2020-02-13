@@ -41,7 +41,7 @@ $opt_responder["DNS"][1] = 10;
 $opt_responder["DNS"][2] = "";
 
 $opt_responder["LDAP"][0] = 1;
-$opt_responder["LDAP"][1] = 12;
+$opt_responder["LDAP"][1] = 11;
 $opt_responder["LDAP"][2] = "";
 
 $opt_responder["AutoIgnoreAfterSuccess"][0] = 0;
