@@ -80,18 +80,18 @@ include "includes/options_config.php";
     <? 
     if (file_exists($bin_responder)) { 
         echo "&nbsp; $mod_alias <font style='color:lime'>installed</font><br>";
-    } else {
-        echo "&nbsp; $mod_alias <a href='includes/module_action.php?install=install_$mod_name' style='color:red'>install</a><br>";
-    } 
-    ?>
-    
-    <?
-    $ismoduleup = exec($mod_isup);
+
+	$ismoduleup = exec($mod_isup);
     if ($ismoduleup != "") {
         echo "&nbsp; $mod_alias  <font color='lime'><b>enabled</b></font>.&nbsp; | <a href='includes/module_action.php?service=responder&action=stop&page=module'><b>stop</b></a>";
     } else { 
         echo "&nbsp; $mod_alias  <font color='red'><b>disabled</b></font>. | <a href='includes/module_action.php?service=responder&action=start&page=module'><b>start</b></a>"; 
     }
+
+
+    } else {
+        echo "&nbsp; $mod_alias <a href='includes/module_action.php?install=install_$mod_name' style='color:red'>install</a><br>";
+    } 
     ?>
 
 </div>
@@ -131,7 +131,13 @@ Loading, please wait...
             <textarea id="output" class="module-content" style="font-family: courier;"><?=htmlspecialchars($data)?></textarea>
             <input type="hidden" name="type" value="logs">
             </form>
-            
+		<?
+		if ( 0 < filesize( $mod_logs ) ) {
+        	echo "<form method='POST' autocomplete='off' action='includes/download.php'>
+		<button type='submit' style='color:black;'>Download Log</button>
+		</form> ";
+		}
+		?>
         </div>
 
         <!-- OPTIONS -->
