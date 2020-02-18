@@ -79,8 +79,6 @@ include "includes/options_config.php";
     &nbsp;&nbsp;version <?=$mod_version?><br>
     <? 
     if (file_exists($bin_responder)) { 
-        echo "&nbsp; $mod_alias <font style='color:lime'>installed</font><br>";
-
 	$ismoduleup = exec($mod_isup);
     if ($ismoduleup != "") {
         echo "&nbsp; $mod_alias  <font color='lime'><b>enabled</b></font>.&nbsp; | <a href='includes/module_action.php?service=responder&action=stop&page=module'><b>stop</b></a>";
